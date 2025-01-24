@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pang's Portfolio</title>
+
+    <style>
+
+        .top-bar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background-color: #333;
+          color: #fff;
+          padding: 10px 20px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          z-index: 1000;
+
+        }
+    
+        
+        .content {
+          margin-top: 180;
+          padding: 20px;
+        }
+
+
+        nav a {
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+
+    .image-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .image-grid iframe {
+    width: 100%;
+    height: 350px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+    .dynamic-rectangle {
+  background-color: rgb(58, 56, 56);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  margin: 20px auto;
+  margin-top: 200px;
+}
+
+
+  .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        text-align: center;
+      }
+
+
+    .image-grid img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none; /* Hidden by default */
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        margin-top: 180px;
+      }
+    .overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+</style>
+
+</head>
+<body>
+  <!-- Floating Top Bar -->
+  <div class="top-bar">
+    <h1>Pang's Portfolio</h1>
+    <nav>
+      <a href="/index.html" style="color: #fff; margin-right: 15px;">Home</a>
+      <a href="/about.html" style="color: #fff; margin-right: 15px;">About</a>
+      <a href="/contact.html" style="color: #fff;">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Dynamic Black Rectangle -->
+  <div class="dynamic-rectangle">
+    <h2>Roblox | Real Estate Simulator</h2>
+    <h3>Programming language: lua</h3>
+    <p>
+      This project was for a year 10 project. It featured a cloud storage system, pet lottery system and real estate gameplay. This game was inspired by the popular "simulator" genre on Roblox.
+    </p>
+
+    <!--Images!!!-->
+    <div class="image-grid">
+        <img src="Roblox_1.png" onclick="showOverlay(this.src)">
+        <img src="Roblox_3.png" onclick="showOverlay(this.src)">
+        <iframe width="1280" height="720" src="https://www.youtube.com/embed/NyqUGkkY3Cc" title="Roblox saving and loading demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    
+      <!-- Overlay -->
+      <div class="overlay" id="imageOverlay" onclick="closeOverlay(event)">
+        <img id="overlayImage" src="" alt="Full Image">
+      </div>
+    
+      <script>
+        function showOverlay(src) {
+          const overlay = document.getElementById('imageOverlay');
+          const overlayImage = document.getElementById('overlayImage');
+          overlayImage.src = src;
+          overlay.style.display = 'flex';
+        }
+    
+
+        function closeOverlay(event) {
+          const overlay = document.getElementById('imageOverlay');
+          if (event.target === overlay) { 
+            overlay.style.display = 'none';
+          }
+        }
+      </script>
+</body>
+</html>

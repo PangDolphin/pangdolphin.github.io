@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pang's Portfolio</title>
+
+    <style>
+
+        .top-bar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          background-color: #333;
+          color: #fff;
+          padding: 10px 20px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          z-index: 1000;
+
+        }
+
+        .content {
+          margin-top: 180;
+          padding: 20px;
+        }
+
+
+        nav a {
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+
+    .image-grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .image-grid iframe {
+    width: 100%;
+    height: 350px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+    .dynamic-rectangle {
+  background-color: rgb(58, 56, 56);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  margin: 20px auto;
+  margin-top: 200px;
+}
+
+
+  .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        text-align: center;
+      }
+
+
+    .image-grid img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: none; /* Hidden by default */
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        margin-top: 180px;
+      }
+</style>
+
+</head>
+<body>
+  <!-- Floating Top Bar -->
+  <div class="top-bar">
+    <h1>Pang's Portfolio</h1>
+    <nav>
+      <a href="/index.html" style="color: #fff; margin-right: 15px;">Home</a>
+      <a href="/about.html" style="color: #fff; margin-right: 15px;">About</a>
+      <a href="/contact.html" style="color: #fff;">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Dynamic Black Rectangle -->
+  <div class="dynamic-rectangle">
+    <h2>Confetti Dispenser Mk 3</h2>
+    <h3>Programming language: Python, C++</h3>
+    <p>
+      This project was for my final year 12 project and was featured in the 2024 Pycon student showcase. 
+      This was a improvement to the Rapid Firing Confetti Dispenser. 
+      Featuring, autonomous infrared aiming (powered by computer vision), GUI, 
+      remote control aiming, and a belt or magazine feeding mechanism (interchangeable).
+    </p>
+
+    <!--Images!!!-->
+    <div class="image-grid">
+        <img src="20240908_221531.jpg" alt="Thumbnail 1" onclick="showOverlay(this.src)">
+        <iframe width="1280" height="720" src="https://www.youtube.com/embed/ufuoae3BSJQ" title="Y12 Sem 2 final submission demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="727" height="1293" src="https://www.youtube.com/embed/rnG4_Vfi3c0" title="Infrared Tracking Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <img src="GUI.png" alt="Thumbnail 2" onclick="showOverlay(this.src)">
+        <img src="20241103_142431.jpg" onclick="showOverlay(this.src)">
+        <img src="20241114_174430.jpg" onclick="showOverlay(this.src)">
+        <img src="20241114_174833.jpg" onclick="showOverlay(this.src)">
+        <img src="20241114_174842.jpg" onclick="showOverlay(this.src)">
+        <img src="20241114_175429.jpg" onclick="showOverlay(this.src)">
+        
+      </div>
+    
+      <!-- Overlay -->
+      <div class="overlay" id="imageOverlay" onclick="closeOverlay(event)">
+        <img id="overlayImage" src="" alt="Full Image">
+      </div>
+    
+      <script>
+        function showOverlay(src) {
+          const overlay = document.getElementById('imageOverlay');
+          const overlayImage = document.getElementById('overlayImage');
+          overlayImage.src = src;
+          overlay.style.display = 'flex';
+        }
+    
+
+        function closeOverlay(event) {
+          const overlay = document.getElementById('imageOverlay');
+          if (event.target === overlay) { 
+            overlay.style.display = 'none';
+          }
+        }
+      </script>
+</body>
+</html>
